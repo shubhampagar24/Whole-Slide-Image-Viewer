@@ -1,70 +1,114 @@
-# Getting Started with Create React App
+# 🩸 Whole Slide Image Viewer
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## 📌 Project Overview
+This project is a **Whole Slide Image (WSI) Viewer** built with **React** and **OpenSeadragon**. It loads a **blood smear image**, displays it with zooming/panning functionality, and overlays **bounding boxes** around detected **RBCs, WBCs, and Platelets** from `output.json`. The left panel shows metadata and cell counts, while the top displays the **current date and time**.
 
-## Available Scripts
+## 🚀 Features
+✅ Load Whole Slide Images using **OpenSeadragon**  
+✅ Display **bounding boxes** around detected cells  
+✅ Show **RBC, WBC, and Platelet counts**  
+✅ Live **Date & Time** on top  
+✅ Display **Patient ID, Sample Type, Report Date, Status, Worker ID**  
+✅ Fetch **detection results** from `output.json` dynamically  
 
-In the project directory, you can run:
+---
 
-### `npm start`
+## 🏗️ Project Setup
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### 1️⃣ **Clone the Repository**
+```sh
+git clone https://github.com/shubhampagar24/WSI-Viewer.git
+cd WSI-Viewer
+```
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### 2️⃣ **Install Dependencies**
+```sh
+npm install
+```
 
-### `npm test`
+### 3️⃣ **Run the Project**
+```sh
+npm start
+```
+Now open [http://localhost:3000](http://localhost:3000) in your browser.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+---
 
-### `npm run build`
+## 📂 File Structure
+```
+/WSI-Viewer
+│── /src
+│   ├── /components
+│   │   ├── WSIViewer.jsx  ✅ (Main Component)
+│   │   ├── styles.css ✅ (CSS for styling)
+│   ├── /assets
+│   │   ├── output.json ✅ (Detection results file)
+│   │   ├── 7_20241209_024613.png ✅ (Blood smear image)
+│   ├── App.js ✅ (Main App file)
+│   ├── index.js ✅ (Entry point)
+│── /public
+│   ├── output.json ✅ (Can also be placed here if needed)
+│   ├── 7_20241209_024613.png ✅ (Can also be placed here)
+│── package.json
+│── README.md ✅ (You're reading it now!)
+```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+---
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## 📜 **How It Works?**
+1. **Loads the WSI Image** using OpenSeadragon
+2. **Fetches `output.json`** for cell detection results
+3. **Draws Bounding Boxes** around detected RBC, WBC, and Platelets
+4. **Displays Patient & Sample Details** in the left panel
+5. **Updates Current Date & Time** dynamically every second
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+---
 
-### `npm run eject`
+## 🔥 Technologies Used
+- **React.js** - Frontend framework
+- **OpenSeadragon** - Image viewer for whole slide images
+- **JavaScript (ES6+), HTML, CSS** - Core web technologies
+- **JSON** - Input data format for detection results
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+---
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## 📁 Example `output.json` File
+```json
+{
+  "id": 19,
+  "patient_id": "7",
+  "sample_type": "blood",
+  "date": "2024-12-09",
+  "status": "completed",
+  "workerId": "1234",
+  "inference_results": {
+    "output": {
+      "detection_results": [
+        [121, 4, 163, 45, "Circular_RBC"],
+        [396, 312, 433, 353, "WBC"],
+        [388, 90, 428, 130, "Platelet"]
+      ]
+    }
+  }
+}
+```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+---
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## 🛠️ **Customization**
+🔹 Modify **styles.css** to change the UI design  
+🔹 Adjust bounding box colors in **WSIViewer.jsx**  
+🔹 Add more data fields from `output.json` if needed
 
-## Learn More
+---
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## 🤝 Contributing
+Pull requests are welcome! Feel free to fork and enhance the project.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+---
 
-### Code Splitting
+## 📜 License
+This project is **open-source** under the MIT License.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+🚀 **Happy Coding!** 🩸
 
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
